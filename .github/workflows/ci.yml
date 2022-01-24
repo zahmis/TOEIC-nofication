@@ -1,0 +1,20 @@
+name: TOEIC Notification
+
+on:
+  # push:
+  schedule:
+    - cron: '0 23 * * *'
+# env: 
+#   TEAM: ${{secrets.TEAM}}
+#   BSTART: ${{secrets.BSTART}}
+#   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+#   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run kusowifi shell
+        run: |
+          sh ./toeic.sh
