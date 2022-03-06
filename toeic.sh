@@ -3,7 +3,7 @@ set -eu
 
 START=`date +%s`
 END=`(date --date '2022/02/27' +%s)`
-restSeconds=$((END-START))
+restSeconds=$((START-END))
 
 slackData () {
   restDays="$((${restSeconds} / (60 * 60 * 24)))"
@@ -14,7 +14,7 @@ slackData () {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "TOEIC までのこり ${restDays}日"
+                "text": "TOEIC から ${restDays}日経過"
             }
          }
     ]
