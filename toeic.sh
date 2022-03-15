@@ -7,7 +7,7 @@ restSeconds=$((END-START))
 
 slackData () {
   restDays="$((${restSeconds} / (60 * 60 * 24)))"
-  text= restDays > 0 ? "TOEIC から ${restDays} 日経過" : "TOEIC まで残り ${restDays} 日"
+  text= restDays < 0 ? "TOEIC から ${restDays} 日経過" : "TOEIC まで残り ${restDays} 日"
   cat <<EOF
 {
     "blocks": [
