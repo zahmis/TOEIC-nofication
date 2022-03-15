@@ -2,7 +2,7 @@
 set -eu
 
 START=`date +%s`
-END=`(date --date '2022/02/27' +%s)`
+END=`(date --date '2022/05/29' +%s)`
 restSeconds=$((START-END))
 
 slackData () {
