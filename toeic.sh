@@ -3,8 +3,8 @@ set -eu
 
 START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
-isAfter=END > START
-restSeconds=$((isAfter ? END - START : START - END))
+isAfter=END < START
+restSeconds=$((isAfter ? START - END : END - START))
 
 slackData () {
   diffDays="$((${restSeconds} / (60 * 60 * 24)))"
