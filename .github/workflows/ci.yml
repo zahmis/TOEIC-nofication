@@ -9,7 +9,7 @@ on:
 #   BSTART: ${{secrets.BSTART}}
 #   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
 #   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-  
+
 jobs:
   execute:
     runs-on: ubuntu-latest
