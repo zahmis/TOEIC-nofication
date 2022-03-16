@@ -3,7 +3,7 @@ set -eu
 
 START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
-isAfter=END < START
+isAfter=$((END < START))
 restSeconds=$((isAfter ? START - END : END - START))
 
 slackData () {
