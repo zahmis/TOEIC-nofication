@@ -4,21 +4,11 @@ set -eu
 START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
 isAfter=$((END < START))
-
-restSeconds=0
-if(($isAfter)) then
- restSeconds=START - END
-else
- restSeconds=END - START
-fi
+restSeconds=$((isAfter ? START - END : END - START))
 
 slackData () {
   diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-  if(($isAfter)) then
-  text="TOEIC から ${diffDays} 日経過"
-  else
-  text="TOEIC まで ${diffDays} 日"
-  fi
+  text=${isAfter} ? "TOEIC から ${diffDays} 日経過" : "TOEIC まで残り ${diffDays} 日"
   cat <<EOF
 {
     "blocks": [
