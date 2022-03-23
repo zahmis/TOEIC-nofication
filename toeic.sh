@@ -5,6 +5,7 @@ START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
 isAfter=$((END < START))
 
+restSeconds = 0
 if(($isAfter)) then
  restSeconds = START - END
 else
