@@ -18,3 +18,4 @@ jobs:
       - name: Run kusowifi shell
         run: |
           sh ./toeic.sh
+        shell: bash 
