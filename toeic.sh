@@ -8,7 +8,7 @@ restSeconds=$((isAfter ? START - END : END - START))
 
 slackData () {
   diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-  text= ${isAfter} && ${diffDays} || ${diffDays}
+  text= ${diffDays}
   cat <<EOF
 {
     "blocks": [
