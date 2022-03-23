@@ -4,10 +4,14 @@ set -eu
 START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
 isAfter=$((END < START)) # 0
-isAfter=$((END > START)) # 
-echo $isAfter
+# isAfter=$((END > START)) # 1
+
 # restSeconds=$((isAfter && (START - END) || (END - START)))
-restSeconds=$((END - START))
+if [ $isAfter -eq 0 ]; then
+    restSeconds=$((START - END))
+else
+    restSeconds=$((END - START))
+fi
 echo $restSeconds
 restSeconds=$((START - END))
 echo $restSeconds
