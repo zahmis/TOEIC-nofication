@@ -7,7 +7,7 @@ isAfter=$((END < START))
 
 if(($isAfter)) then
  restSeconds = START - END
-fi else
+else
  restSeconds = END - START
 fi
 
@@ -15,7 +15,7 @@ slackData () {
   diffDays="$((${restSeconds} / (60 * 60 * 24)))"
   if(($isAfter)) then
   text = "TOEIC から ${diffDays} 日経過"
-  fi else
+  else
   text = "TOEIC まで ${diffDays} 日"
   fi
   cat <<EOF
