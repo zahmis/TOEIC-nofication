@@ -17,8 +17,10 @@ else
     text="TOEIC から残り ${diffDays} 日経過"
 fi
 
-slackData () {
+echo $diffDays
+echo $text
 
+slackData () {
   diffDays=$diffDays
   text=$text
   cat <<EOF
