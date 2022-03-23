@@ -10,11 +10,11 @@ isAfter=$((END < START)) # 0
 if [ $isAfter -eq 1 ]; then
     restSeconds=$((START - END))
     diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-    text="TOEIC まで残り ${diffDays} 日"
+    text="TOEIC から ${diffDays} 日経過"
 else
     restSeconds=$((END - START))
     diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-    text="TOEIC から残り ${diffDays} 日経過"
+    text="TOEIC まで残り ${diffDays} 日"
 fi
 
 echo $diffDays
@@ -23,7 +23,7 @@ echo $text
 slackData () {
   diffDays=$diffDays
   text=$text
-  cat <<EOF
+  cat<<EOF
 {
     "blocks": [
         {
