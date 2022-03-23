@@ -6,9 +6,9 @@ END=`(date --date '2022/05/29' +%s)`
 # isAfter=$((END < START))
 # restSeconds=$((isAfter && (START - END) || (END - START)))
 restSeconds=$((END - START))
-echo restSeconds
+echo $restSeconds
 restSeconds=$((START - END))
-echo restSeconds
+echo $restSeconds
 
 slackData () {
   diffDays="$((${restSeconds} / (60 * 60 * 24)))"
