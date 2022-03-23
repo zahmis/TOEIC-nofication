@@ -5,7 +5,7 @@ START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
 # isAfter=$((END < START))
 # restSeconds=$((isAfter && (START - END) || (END - START)))
-if [$START < $END]; then
+if [$START -lt $END]; then
 restSeconds= $END - $START
 else
 restSeconds= $START - $END
