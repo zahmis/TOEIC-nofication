@@ -21,8 +21,8 @@ echo $diffDays
 echo $text
 
 slackData () {
-  diffDays=$diffDays
-  text=$text
+#   diffDays=$diffDays
+#   text=$text
   cat<<EOF
 {
     "blocks": [
@@ -30,7 +30,7 @@ slackData () {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": ${text}
+                "text": "なんで invalid?"
             }
          }
     ]
