@@ -15,10 +15,15 @@ if [ $isAfter -eq 1 ]; then
     text="TOEIC から ${diffDays} 日経過"
 else
     restSeconds=$((END - START))
-    restMorningDeadline="$((END - DEADLINEMORNING) / (60 * 60 * 24)))"
-    restAfterNoonDeadline="$((END - DEADLINEAFTERNOON) / (60 * 60 * 24)))"
     diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-    text="TOEIC まで残り ${diffDays} 日 午前申し込み期限まで${restMorningDeadline} 日 午後申し込み期限まで${restAfterNoonDeadline} 日"
+
+    restMorningDeadline=$((END - DEADLINEMORNING))
+    diffMorning="$((${restMorningDeadline} / (60 * 60 * 24)))"
+
+    restAfterNoonDeadline=$((END - DEADLINEAFTERNOON))
+    diffAfternoon="$((${restAfterNoonDeadline} / (60 * 60 * 24)))"
+    
+    text="TOEIC まで残り ${diffDays} 日 午前申し込み期限まで${diffMorning} 日 午後申し込み期限まで${diffAfternoon} 日"
 fi
 
 echo $diffDays
