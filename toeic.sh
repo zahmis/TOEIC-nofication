@@ -23,7 +23,7 @@ else
     restAfterNoonDeadline=$((DEADLINEAFTERNOON - START))
     diffAfternoon="$((${restAfterNoonDeadline} / (60 * 60 * 24)))"
 
-    text="TOEIC まで残り ${diffDays} 日 午前申し込み期限まで${diffMorning} 日 午後申し込み期限まで${diffAfternoon} 日"
+    text="TOEIC まで残り ${diffDays} 日 \n 午前申し込み期限まで${diffMorning} 日 \n 午後申し込み期限まで${diffAfternoon} 日"
 fi
 
 echo $diffDays
