@@ -1,9 +1,9 @@
 name: TOEIC Notification
 
 on:
-  # push:
+  push:
   schedule:
-    - cron: "0 23 * * *"
+    - cron: '0 23 * * *'
 # env:
 #   TEAM: ${{secrets.TEAM}}
 #   BSTART: ${{secrets.BSTART}}

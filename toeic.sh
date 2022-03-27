@@ -3,6 +3,8 @@ set -eu
 
 START=`date +%s`
 END=`(date --date '2022/05/29' +%s)`
+DEADLINEMORNING=`(date --date '2022/04/04' +%s)`
+DEADLINEAFTERNOON=`(date --date '2022/04/11' +%s)`
 isAfter=$((END < START)) # 0
 # isAfter=$((END > START)) # 1
 
@@ -13,8 +15,10 @@ if [ $isAfter -eq 1 ]; then
     text="TOEIC から ${diffDays} 日経過"
 else
     restSeconds=$((END - START))
+    restMorningDeadline=$((END - DeadlineMorning))
+    restAfterNoonDeadline=$((END - DeadlineAfternoon))
     diffDays="$((${restSeconds} / (60 * 60 * 24)))"
-    text="TOEIC まで残り ${diffDays} 日"
+    text="TOEIC まで残り ${diffDays} 日 午前申し込み期限まで${restMorningDeadline} 日 午後申し込み期限まで${restAfterNoonDeadLine} 日"
 fi
 
 echo $diffDays
